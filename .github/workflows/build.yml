@@ -43,12 +43,12 @@ jobs:
       run: |
         MRMAT_VERSION="${MAJOR}.${MINOR}.${GITHUB_RUN_NUMBER}"
         if [ "$GITHUB_EVENT_NAME" == 'pull_request_target' -a "$GITHUB_BASE_REF" == 'main' ]; then
-          MRMAT_IS_RELEASE=true
           echo "::warning ::Building release ${MRMAT_VERSION}"
-          echo "MRMAT_IS_RELEASE=true" >> $GITHUB_ENV
+          echo "MRMAT_PHASE='release'" >> $GITHUB_ENV
         else
-          MRMAT_VERSION="${MRMAT_VERSION}-SNAPSHOT"
           echo "::warning ::Building version ${MRMAT_VERSION}"
+          MRMAT_VERSION="${MRMAT_VERSION}-SNAPSHOT"
+          echo "MRMAT_PHASE='push'" >> $GITHUB_ENV
         fi
         echo "MRMAT_VERSION=${MRMAT_VERSION}" >> $GITHUB_ENV
 
@@ -61,8 +61,18 @@ jobs:
         distribution: temurin
         java-version: '17'
 
+    - name: Setup Gradle
+      uses: gradle/gradle-build-action@v2
+      with:
+        gradle-version: 8.7
+
     - name: Build
-      run: ./gradlew --parallel --warning-mode all -Dorg.gradle.welcome-message=false publish
+      run: |
+        if [ "$MRMAT_PHASE" == 'release' ]; then
+          gradle publish
+        else
+          gradle build
+        fi
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
