@@ -63,12 +63,11 @@ jobs:
 
     - name: Build
       run: |
-        ./gradlew publish
-#        if [ "$MRMAT_PHASE" == 'release' ]; then
-#          ./gradlew publish
-#        else
-#          ./gradlew build
-#        fi
+        if [ "$MRMAT_PHASE" == 'release' ]; then
+          ./gradlew publish
+        else
+          ./gradlew build
+        fi
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
