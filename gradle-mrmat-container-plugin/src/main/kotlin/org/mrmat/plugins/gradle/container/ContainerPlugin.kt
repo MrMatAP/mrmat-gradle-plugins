@@ -1,4 +1,4 @@
-package org.mrmat.plugins.container
+package org.mrmat.plugins.gradle.container
 
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -6,8 +6,6 @@ import org.gradle.api.tasks.Copy
 import org.gradle.api.tasks.Exec
 import org.gradle.kotlin.dsl.getByType
 import org.gradle.kotlin.dsl.named
-import org.mrmat.plugins.gradle.container.ContainerBasePlugin
-import org.mrmat.plugins.gradle.container.ContainerExtension
 
 
 abstract class ContainerPlugin: Plugin<Project> {
