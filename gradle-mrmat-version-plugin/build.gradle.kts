@@ -22,7 +22,7 @@ gradlePlugin {
             implementationClass = "org.mrmat.plugins.gradle.version.VersionBasePlugin"
         }
         create("versionPlugin") {
-            id = "org.mrmat.plugins.version"
+            id = "org.mrmat.plugins.gradle.version"
             implementationClass = "org.mrmat.plugins.gradle.version.VersionPlugin"
         }
     }
@@ -34,8 +34,8 @@ publishing {
             name = "GitHubPackages"
             url = uri("https://maven.pkg.github.com/MrMatAP/mrmat-gradle-plugins")
             credentials {
-                username = System.getenv("GITHUB_ACTOR")
-                password = System.getenv("GITHUB_TOKEN")
+                username = System.getenv("GITHUB_ACTOR") ?: project.findProperty("gpr.user") as String?
+                password = System.getenv("GITHUB_TOKEN") ?: project.findProperty("gpr.token") as String?
             }
         }
     }
