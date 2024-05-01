@@ -43,11 +43,11 @@ jobs:
       run: |
         MRMAT_VERSION="${MAJOR}.${MINOR}.${GITHUB_RUN_NUMBER}"
         if [ "$GITHUB_EVENT_NAME" == 'pull_request_target' -a "$GITHUB_BASE_REF" == 'main' ]; then
-          echo "Building release ${MRMAT_VERSION}" >> $GITHUB_OUTPUT
+          echo "info=Building release ${MRMAT_VERSION}" >> $GITHUB_OUTPUT
           echo "MRMAT_PHASE=release" >> $GITHUB_ENV
         else
           MRMAT_VERSION="${MRMAT_VERSION}-SNAPSHOT"
-          echo "Building version ${MRMAT_VERSION}" >> $GITHUB_OUTPUT
+          echo "info=Building version ${MRMAT_VERSION}" >> $GITHUB_OUTPUT
           echo "MRMAT_PHASE=push" >> $GITHUB_ENV
         fi
         echo "MRMAT_VERSION=${MRMAT_VERSION}" >> $GITHUB_ENV
