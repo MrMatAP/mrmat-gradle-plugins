@@ -1,4 +1,4 @@
-package org.mrmat.plugins.ansible
+package org.mrmat.plugins.gradle.ansible
 
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty

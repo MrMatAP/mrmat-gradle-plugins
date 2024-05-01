@@ -1,4 +1,4 @@
-package org.mrmat.plugins.helm
+package org.mrmat.plugins.gradle.helm
 
 import org.gradle.api.file.DirectoryProperty
 import org.gradle.api.file.RegularFileProperty

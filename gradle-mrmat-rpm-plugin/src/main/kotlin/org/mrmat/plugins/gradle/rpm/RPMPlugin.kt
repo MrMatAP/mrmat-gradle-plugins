@@ -2,6 +2,7 @@ package org.mrmat.plugins.rpm
 
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.mrmat.plugins.gradle.rpm.RPMBasePlugin
 
 abstract class RPMPlugin: Plugin<Project> {
 
