@@ -46,8 +46,8 @@ jobs:
           echo "::warning ::Building release ${MRMAT_VERSION}"
           echo "MRMAT_PHASE='release'" >> $GITHUB_ENV
         else
-          echo "::warning ::Building version ${MRMAT_VERSION}"
           MRMAT_VERSION="${MRMAT_VERSION}-SNAPSHOT"
+          echo "::warning ::Building version ${MRMAT_VERSION}"
           echo "MRMAT_PHASE='push'" >> $GITHUB_ENV
         fi
         echo "MRMAT_VERSION=${MRMAT_VERSION}" >> $GITHUB_ENV
@@ -61,17 +61,12 @@ jobs:
         distribution: temurin
         java-version: '17'
 
-    - name: Setup Gradle
-      uses: gradle/gradle-build-action@v2
-      with:
-        gradle-version: 8.7
-
     - name: Build
       run: |
         if [ "$MRMAT_PHASE" == 'release' ]; then
-          gradle publish
+          ./gradlew publish
         else
-          gradle build
+          ./gradlew build
         fi
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
