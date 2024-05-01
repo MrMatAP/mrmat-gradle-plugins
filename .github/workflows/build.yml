@@ -35,6 +35,9 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
     steps:
     - name: Calculate Build Context
       run: |
@@ -59,7 +62,9 @@ jobs:
         java-version: '17'
 
     - name: Build
-      run: ./gradlew --no-daemon --parallel --warning-mode all build
+      run: ./gradlew --no-daemon --parallel --warning-mode all publish
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Conditional Release
       uses: marvinpinto/action-automatic-releases@latest
