@@ -6,7 +6,6 @@ import org.gradle.api.tasks.Copy
 import org.gradle.api.tasks.Exec
 import org.gradle.api.tasks.StopExecutionException
 import org.gradle.kotlin.dsl.register
-import org.mrmat.plugins.helm.HelmVersionTask
 import java.io.ByteArrayOutputStream
 
 abstract class HelmBasePlugin: Plugin<Project> {

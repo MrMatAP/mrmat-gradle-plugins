@@ -1,4 +1,4 @@
-package org.mrmat.plugins.ansible
+package org.mrmat.plugins.gradle.ansible
 
 import com.fasterxml.jackson.dataformat.yaml.YAMLMapper
 import com.fasterxml.jackson.module.kotlin.registerKotlinModule
@@ -8,8 +8,6 @@ import org.gradle.api.provider.Property
 import org.gradle.api.tasks.Input
 import org.gradle.api.tasks.OutputFile
 import org.gradle.api.tasks.TaskAction
-import org.mrmat.plugins.gradle.ansible.AnsibleAppModel
-import org.mrmat.plugins.gradle.ansible.AnsibleExtension
 
 abstract class AnsibleVersionTask: DefaultTask() {
 
