@@ -59,7 +59,7 @@ jobs:
         java-version: '17'
 
     - name: Build
-      run: ./gradlew build
+      run: ./gradlew --no-daemon --parallel --no-scan --warning-mode all build
 
     - name: Conditional Release
       uses: marvinpinto/action-automatic-releases@latest
