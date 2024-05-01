@@ -43,12 +43,12 @@ jobs:
       run: |
         MRMAT_VERSION="${MAJOR}.${MINOR}.${GITHUB_RUN_NUMBER}"
         if [ "$GITHUB_EVENT_NAME" == 'pull_request_target' -a "$GITHUB_BASE_REF" == 'main' ]; then
-          echo "::warning ::Building release ${MRMAT_VERSION}"
-          echo "MRMAT_PHASE='release'" >> $GITHUB_ENV
+          echo "Building release ${MRMAT_VERSION}" >> $GITHUB_OUTPUT
+          echo "MRMAT_PHASE=release" >> $GITHUB_ENV
         else
           MRMAT_VERSION="${MRMAT_VERSION}-SNAPSHOT"
-          echo "::warning ::Building version ${MRMAT_VERSION}"
-          echo "MRMAT_PHASE='push'" >> $GITHUB_ENV
+          echo "Building version ${MRMAT_VERSION}" >> $GITHUB_OUTPUT
+          echo "MRMAT_PHASE=push" >> $GITHUB_ENV
         fi
         echo "MRMAT_VERSION=${MRMAT_VERSION}" >> $GITHUB_ENV
 
@@ -63,17 +63,17 @@ jobs:
 
     - name: Build
       run: |
-        if [ "$MRMAT_PHASE" == 'release' ]; then
-          ./gradlew publish
+        if [ "$MRMAT_PHASE" == "release" ]; then
+          ./gradlew --no-daemon publish
         else
-          ./gradlew build
+          ./gradlew --no-daemon build
         fi
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Conditional Release
       uses: marvinpinto/action-automatic-releases@latest
-      if: (github.event.pull_request.merged == true && github.base_ref == 'main')
+      if: env.MRMAT_PHASE == 'release'
       with:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
         automatic_release_tag: "${{ env.MRMAT_VERSION }}"
