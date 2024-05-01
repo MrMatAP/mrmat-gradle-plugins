@@ -69,7 +69,7 @@ jobs:
     - name: Build
       run: |
         if [ "$MRMAT_PHASE" == 'release' ]; then
-          gradle publish
+          gradle build publish
         else
           gradle build
         fi
