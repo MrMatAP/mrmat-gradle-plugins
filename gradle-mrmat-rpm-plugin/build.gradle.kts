@@ -1,5 +1,6 @@
 plugins {
     `kotlin-dsl`
+    `maven-publish`
 }
 
 group = "org.mrmat.plugins.gradle.rpm"
@@ -20,6 +21,19 @@ gradlePlugin {
         create("rpmPlugin") {
             id = "org.mrmat.plugins.gradle.rpm"
             implementationClass = "org.mrmat.plugins.gradle.rpm.RPMPlugin"
+        }
+    }
+}
+
+publishing {
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/MrMatAP/mrmat-gradle-plugins")
+            credentials {
+                username = System.getenv("GITHUB_ACTOR")
+                password = System.getenv("GITHUB_TOKEN")
+            }
         }
     }
 }

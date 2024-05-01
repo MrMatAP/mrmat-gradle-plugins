@@ -1,5 +1,6 @@
 plugins {
     `kotlin-dsl`
+    `maven-publish`
 }
 
 group = "org.mrmat.plugins.gradle.ansible"
@@ -26,6 +27,19 @@ gradlePlugin {
         create("containerPlugin") {
             id = "org.mrmat.plugins.gradle.ansible"
             implementationClass = "org.mrmat.plugins.gradle.ansible.AnsiblePlugin"
+        }
+    }
+}
+
+publishing {
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/MrMatAP/mrmat-gradle-plugins")
+            credentials {
+                username = System.getenv("GITHUB_ACTOR")
+                password = System.getenv("GITHUB_TOKEN")
+            }
         }
     }
 }
