@@ -1,4 +1,4 @@
-package org.mrmat.plugins.helm
+package org.mrmat.plugins.gradle.helm
 
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -10,8 +10,6 @@ import org.gradle.api.tasks.bundling.Compression
 import org.gradle.api.tasks.bundling.Tar
 import org.gradle.kotlin.dsl.getByType
 import org.gradle.kotlin.dsl.named
-import org.mrmat.plugins.gradle.helm.HelmBasePlugin
-import org.mrmat.plugins.gradle.helm.HelmExtension
 
 abstract class HelmPlugin: Plugin<Project> {
 

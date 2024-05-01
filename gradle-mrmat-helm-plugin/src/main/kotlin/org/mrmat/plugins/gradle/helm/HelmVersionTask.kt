@@ -1,4 +1,4 @@
-package org.mrmat.plugins.helm
+package org.mrmat.plugins.gradle.helm
 
 import com.fasterxml.jackson.dataformat.yaml.YAMLMapper
 import com.fasterxml.jackson.module.kotlin.registerKotlinModule
@@ -9,8 +9,6 @@ import org.gradle.api.tasks.Input
 import org.gradle.api.tasks.InputFile
 import org.gradle.api.tasks.OutputFile
 import org.gradle.api.tasks.TaskAction
-import org.mrmat.plugins.gradle.helm.HelmChartModel
-import org.mrmat.plugins.gradle.helm.HelmExtension
 
 abstract class HelmVersionTask: DefaultTask() {
 

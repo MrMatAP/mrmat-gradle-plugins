@@ -1,4 +1,4 @@
-package org.mrmat.plugins.ansible
+package org.mrmat.plugins.gradle.ansible
 
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -10,8 +10,6 @@ import org.gradle.api.tasks.bundling.Compression
 import org.gradle.api.tasks.bundling.Tar
 import org.gradle.kotlin.dsl.getByType
 import org.gradle.kotlin.dsl.named
-import org.mrmat.plugins.gradle.ansible.AnsibleBasePlugin
-import org.mrmat.plugins.gradle.ansible.AnsibleExtension
 
 abstract class AnsiblePlugin: Plugin<Project> {
 
