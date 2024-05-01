@@ -1,4 +1,4 @@
-package org.mrmat.plugins.ansible
+package org.mrmat.plugins.gradle.ansible
 
 import org.gradle.api.file.DirectoryProperty
 import org.gradle.api.file.RegularFileProperty

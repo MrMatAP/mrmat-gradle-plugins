@@ -1,4 +1,4 @@
-package org.mrmat.plugins.helm
+package org.mrmat.plugins.gradle.helm
 
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty

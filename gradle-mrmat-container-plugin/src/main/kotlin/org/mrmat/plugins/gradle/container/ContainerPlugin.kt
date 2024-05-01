@@ -6,6 +6,8 @@ import org.gradle.api.tasks.Copy
 import org.gradle.api.tasks.Exec
 import org.gradle.kotlin.dsl.getByType
 import org.gradle.kotlin.dsl.named
+import org.mrmat.plugins.gradle.container.ContainerBasePlugin
+import org.mrmat.plugins.gradle.container.ContainerExtension
 
 
 abstract class ContainerPlugin: Plugin<Project> {

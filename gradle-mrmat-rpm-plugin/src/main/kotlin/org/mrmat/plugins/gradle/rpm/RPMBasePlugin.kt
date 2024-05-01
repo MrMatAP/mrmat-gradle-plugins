@@ -1,4 +1,4 @@
-package org.mrmat.plugins.rpm
+package org.mrmat.plugins.gradle.rpm
 
 import org.gradle.api.Plugin
 import org.gradle.api.Project

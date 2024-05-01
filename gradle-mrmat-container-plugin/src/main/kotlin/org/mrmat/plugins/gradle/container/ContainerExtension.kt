@@ -1,4 +1,4 @@
-package org.mrmat.plugins.container
+package org.mrmat.plugins.gradle.container
 
 import org.gradle.api.file.DirectoryProperty
 import org.gradle.api.file.RegularFileProperty
