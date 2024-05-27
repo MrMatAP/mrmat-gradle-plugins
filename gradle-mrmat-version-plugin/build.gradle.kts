@@ -6,7 +6,7 @@ plugins {
 group = "org.mrmat.plugins.gradle.version"
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.23")
+    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:2.0.0")
 
     //
     // To generate code holding the version
