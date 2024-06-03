@@ -11,7 +11,7 @@ dependencies {
     //
     // To generate code holding the version
 
-    implementation("com.squareup:kotlinpoet:1.16.0")
+    implementation("com.squareup:kotlinpoet:1.17.0")
     implementation("com.squareup:javapoet:1.13.0")
 }
 
